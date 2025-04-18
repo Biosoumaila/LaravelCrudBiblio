@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content') 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,13 +26,10 @@
             <tbody>
                 @forelse ($categories as $category)
                     <tr>
-                        {{-- <td>{{ $category->id }}</td> --}}
+
                         <td>{{$category->category_id}}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            {{-- ['author' => 'author_id']['author' => 'author_id'] --}}
-                            {{-- <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info btn-sm">Voir</a> --}}
-                            {{-- <a href="{{ route('categories.show', ['category' => 'category_id']) }}" class="btn btn-info btn-sm">Voir</a> --}}
                             <a href="{{ route('categories.edit', [$category->category_id]) }}" class="btn btn-warning btn-sm">Modifier</a>
                             <form action="{{ route('categories.destroy', [$category->category_id]) }}" method="POST" style="display: inline;">
                                 @csrf
@@ -48,3 +47,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+@endsection

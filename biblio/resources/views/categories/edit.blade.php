@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content') 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,8 +11,6 @@
 <body>
     <div class="container mt-5">
         <h1>Modifier la Catégorie</h1>
-        {{-- <form action="{{ route('categories.update', $category->id) }}" method="POST"> --}}
-        {{-- <form action="{{ route('categories.update', ['category' => 'category_id']) }}" method="POST"> $category->category_id --}}
         <form action="{{ route('categories.update', [$category->category_id]) }}" method="POST">
             @csrf
             @method('PUT')
@@ -28,3 +28,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+@endsection

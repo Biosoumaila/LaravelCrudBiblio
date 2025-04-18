@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 // Route::resource('books', BookController::class);
 // Route::resource('categories', CategoryController::class);
 
+
+Route::get('/', function () {
+    return view('layouts.app');
+});
+
 // Routes pour les auteurs
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
 Route::get('/authors/create', [AuthorController::class, 'create'])->name('authors.create');
@@ -19,7 +24,6 @@ Route::put('/authors/{author}', [AuthorController::class, 'update'])->name('auth
 Route::delete('/authors/{author}', [AuthorController::class, 'destroy'])->name('authors.destroy');
 
 // Routes pour les livres
-Route::get('/', [BookController::class, 'index'])->name('books.index');
 
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
 Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
